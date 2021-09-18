@@ -28,15 +28,16 @@ public class test {
         int b = (a < 1) || (a > 150) ? 0 : 1;
         switch (b) {
             case 0:
-                scannerInput(a);
+                a = scannerInput(a);
                 break;
         }
         return a;        
     }
-    public static void scannerInput(int i) {
+    public static int scannerInput(int i) {
         System.out.println("Error");
         System.out.print("Re-enter number: ");
         i = scannerInt();
         checkValue(i);
+        return i;
     }
 }
