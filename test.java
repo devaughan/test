@@ -16,6 +16,7 @@ public class test {
         for (; start <= limit; start += increment) {
             System.out.print(start + " ");
         }
+        System.out.println("");
     }
 
     public static int scannerInt() {
@@ -25,18 +26,22 @@ public class test {
     }
 
     public static int checkValue(int a) {
-        int b = (a < 1) || (a > 150) ? 0 : 1;
-        switch (b) {
-            case 0:
-                scannerInput(a);
-                break;
-        }
+        outer:
+            for (;;) {
+                int isValid = (a >= 1) && (a <= 150) ? 1 : 0;
+                switch(isValid) {
+                    case 1:
+                        break outer;
+                }
+                a = scannerInput(a);
+            }
         return a;        
     }
-    public static void scannerInput(int i) {
+    public static int scannerInput(int i) {
         System.out.println("Error");
         System.out.print("Re-enter number: ");
         i = scannerInt();
-        checkValue(i);
+
+        return i;
     }
 }
